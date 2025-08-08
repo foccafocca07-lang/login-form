@@ -6,12 +6,12 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      background: #f2f2f2;
       padding: 20px;
       direction: rtl;
     }
     .container {
-      max-width: 480px;
+      max-width: 450px;
       margin: 50px auto;
       background: white;
       padding: 30px;
@@ -32,29 +32,35 @@
       font-family: inherit;
     }
     button {
-      background-color: #2196F3;
+      background-color: #4CAF50;
       color: white;
       font-weight: bold;
       border: none;
       cursor: pointer;
     }
     button:hover {
-      background-color: #1976D2;
+      background-color: #45a049;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>نموذج تسجيل الطلاب</h2>
-    <form action="https://formbucket.com/f/your-bucket-id" method="POST">
+    <form action="https://usebasin.com/f/dec549c2e57d" method="POST">
       <input type="text" name="student_name" placeholder="اسم الطالب" required />
       <input type="email" name="student_email" placeholder="البريد الإلكتروني" required />
       <input type="tel" name="student_phone" placeholder="رقم الهاتف" required />
-      <input type="password" name="student_password" placeholder="كلمة المرور" required />
-      <textarea name="notes" placeholder="ملاحظات إضافية (اختياري)" rows="4"></textarea>
-
-      <!-- إعادة التوجيه بعد الإرسال -->
-      <input type="hidden" name="_redirect" value="https://yourdomain.com/thanks.html" />
+      <select name="grade" required>
+        <option value="">اختر الصف الدراسي</option>
+        <option value="الصف الأول">الصف الأول</option>
+        <option value="الصف الثاني">الصف الثاني</option>
+        <option value="الصف الثالث">الصف الثالث</option>
+      </select>
+      <!-- كلمة المرور كنص عادي عشان ما تتحظرش -->
+      <input type="text" name="password" placeholder="كلمة المرور" required />
+      
+      <!-- إعادة التوجيه لصفحة شكر (اختياري) -->
+      <input type="hidden" name="redirect" value="https://yourdomain.com/thankyou.html" />
 
       <button type="submit">إرسال</button>
     </form>
